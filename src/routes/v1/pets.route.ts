@@ -1,11 +1,9 @@
 /* eslint-disable max-len */
 import * as express from 'express';
-import expressValidation from 'express-validation';
-import {PetController} from '../../controllers/pet.controller'
-import joiValidator from '../../middlewares/joiValidator';
-import { petsValidationSchemas } from '../../validations/pets.validation';
+import {PetController} from '../../controllers'
+import {joiValidator} from '../../middlewares';
+import { petsValidationSchemas } from '../../validations';
 
-const { validate } = expressValidation;
 
 const router = express.Router();
 

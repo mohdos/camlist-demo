@@ -1,6 +1,6 @@
 import * as express from 'express';
-import {PetService} from '../services/pet.service';
-import CustomResponse from '../utils/response';
+import {PetService} from '../services';
+import {CustomResponse} from '../utils';
 
 
 export class PetController {

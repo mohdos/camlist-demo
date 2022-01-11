@@ -1,8 +1,7 @@
 import { errorManager } from "../config/errorManager";
-import CustomError from "../utils/customError";
-import { Bid } from "../database/entities/Bid";
+import {CustomError} from "../utils";
+import { Bid, Pet } from "../database";
 import { getConnection } from "typeorm";
-import { Pet } from "../database/entities/Pet";
 
 export class PetService {
     /**

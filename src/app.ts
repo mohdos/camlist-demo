@@ -1,6 +1,6 @@
 
-import { vars } from './config/index';
-import app from './loaders/express';
+import { vars } from './config';
+import {app} from './loaders';
 
 function startServer()
 {
