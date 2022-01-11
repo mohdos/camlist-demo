@@ -23,6 +23,7 @@ export const connectToDB = async () => {
     });
     await seedDB(connection);
     console.log("Connected successfully");
+    return connection;
   } catch (e: any) {
     console.log(e);
   }

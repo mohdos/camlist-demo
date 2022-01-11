@@ -6,7 +6,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 require('dotenv-safe').config({
   allowEmptyValues: true,
-  path: path.join(__dirname, '../../.env'),
+  path: path.join(__dirname, `../../.env.${process.env.NODE_ENV}`),
   sample: path.join(__dirname, '../../.env.example'),
 });
 
