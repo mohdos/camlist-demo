@@ -1,6 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, Exclusion, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import jwt from 'jsonwebtoken';
-import { vars } from "../../config";
+import { BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Pet } from "./Pet";
 
 /**

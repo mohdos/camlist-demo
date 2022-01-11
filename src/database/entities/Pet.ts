@@ -1,6 +1,4 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, Exclusion, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import jwt from 'jsonwebtoken';
-import { vars } from "../../config";
 import { PetCategory } from "./PetCategory";
 import { User } from "./User";
 import { Bid } from "./Bid";
