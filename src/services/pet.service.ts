@@ -97,6 +97,9 @@ export class PetService {
             if (results.length > 1) {
                 results[results.length - 1]['Paid in USD'] = 'Lost the auction'
             }
+            else {
+                results[0]['Paid in USD'] = 0;
+            }
         }
         else {
             return 'No Winners';
