@@ -1,4 +1,4 @@
-# Set up and installation
+1. # Set up and installation
     - To install the required packages, run the following command
         ```
         npm install
@@ -12,10 +12,10 @@
         * Note: The commands used are compatible for MacOS and Linux systems. Please replace the clean command in package.json if you are using different Operating system Windows
         
 
-# Accessing the documentation
+2. # Accessing the documentation
     - Please go to ```[BASE_URL]/docs```. ```BASE_URL``` of the current setup is http://localhost:4000
 
-# Run tests
+3. # Run tests
     * Make sure to have .env.test file setup
     - Run the following command:
         ```
