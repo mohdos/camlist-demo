@@ -159,22 +159,30 @@
                                     "type": "object",
                                     "properties": {
                                         "result": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "allOf": [
-                                                    {
-                                                        "$ref": "#/components/schemas/BidModel"
-                                                    },
-                                                    {
+                                            "type": "object",
+                                            "properties": {
+                                                "bids": {
+                                                    "type": "array",
+                                                    "items": {
                                                         "type": "object",
-                                                        "properties": {
-                                                            "bidder": {
-                                                                "$ref": "#/components/schemas/UserModel"
+                                                        "allOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/BidModel"
+                                                            },
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "bidder": {
+                                                                        "$ref": "#/components/schemas/UserModel"
+                                                                    }
+                                                                }
                                                             }
-                                                        }
+                                                        ]
                                                     }
-                                                ]
+                                                },
+                                                "pet": {
+                                                    "$ref": "#/components/schemas/PetModel"
+                                                }
                                             }
                                         }
                                     }
@@ -257,6 +265,47 @@
                     "updatedAt": {
                         "type": "string",
                         "format": "date"
+                    }
+                }
+            },
+            "PetModel": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "category": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "updatedAt": {
+                                "type": "string",
+                                "format": "date"
+                            }
+                        }
                     }
                 }
             },
