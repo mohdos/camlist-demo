@@ -1,0 +1,289 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Camlist Pet store API Docs",
+        "description": "Backend APIs for the Camlist Pet store Demo",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000/api/v1"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Camlist Pets",
+            "description": "Backend APIs for the Camlist Pet store"
+        }
+    ],
+    "paths": {
+        "/pets/{petId}/bids": {
+            "post": {
+                "tags": [
+                    "Camlist Pets"
+                ],
+                "summary": "Adds a bid for a certain pet",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "user-id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    },
+                    {
+                        "in": "path",
+                        "name": "petId",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "description": "Bidding for pet",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "bid": {
+                                        "type": "integer",
+                                        "example": 150
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created bid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "$ref": "#/components/schemas/BidModel"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Camlist Pets"
+                ],
+                "summary": "List bids for a certain pet",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "user-id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    },
+                    {
+                        "in": "path",
+                        "name": "petId",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 10
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of bids",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "bids": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/BidModel"
+                                                    }
+                                                },
+                                                "pet": {
+                                                    "$ref": "#/components/schemas/PetModel"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    }
+                }
+            }
+        },
+
+        "/pets/{petId}/winners": {
+            "get": {
+                "tags": [
+                    "Camlist Pets"
+                ],
+                "summary": "List bid winners as per generalized second price auction",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "user-id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    },
+                    {
+                        "in": "path",
+                        "name": "petId",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": false,
+                        "example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of bid winners",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/WinnersModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BidModel": {
+                "type": "object",
+                "properties": {
+                    "bid": {
+                        "type": "integer",
+                        "example": 200
+                    },
+                    "petId": {
+                        "type": "integer"
+                    },
+                    "userId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PetModel": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "ownerId": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    }
+                }
+            },
+            "WinnersModel": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer"
+                    },
+                    "petId": {
+                        "type": "integer"
+                    },
+                    "Paid in USD": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "NotFoundError": {
+                "type": "object",
+                "properties": {
+                    "responseCode": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "NotFound": {
+                "description": "Not Found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/NotFoundError"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
