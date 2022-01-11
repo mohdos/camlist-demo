@@ -21,3 +21,9 @@
         ```
         npm run test
         ```
+
+4. # Run challenge 2 isolated - Generalized second price auction
+    - Run the following command:
+        ```
+        node ./isolated-challenge2-script.js
+        ```
