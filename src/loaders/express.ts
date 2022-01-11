@@ -8,6 +8,7 @@ import ErrorHandler from '../middlewares/errorHandler';
 
 import { router } from '../routes';
 import { connectToDB } from '../database/connection';
+import { setupSwagger } from './swagger';
 
 /**
  * Express instance
@@ -36,6 +37,8 @@ app.use(
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
+
+setupSwagger(app);
 
 // mount api routes
 app.use('/api', router);

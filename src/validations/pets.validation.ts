@@ -24,4 +24,12 @@ export const petsValidationSchemas =  {
       page: Joi.number().min(1),
     }),
   }).unknown(),
+  listWinners: Joi.object().keys({
+    headers: Joi.object().keys({
+      'user-id': Joi.number().required(),
+    }).unknown(),
+    params: Joi.object().keys({
+      petId: Joi.number().required(),
+    })
+  }).unknown(),
 };

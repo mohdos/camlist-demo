@@ -13,7 +13,7 @@ router.route('/:petId/bids')
     .post(joiValidator(petsValidationSchemas.addBid), PetController.addBid)
     .get(joiValidator(petsValidationSchemas.listBids), PetController.listBids);
 
-router.route('/:petId/bids/winners').get(PetController.listWinners);
+router.route('/:petId/bids/winners').get(joiValidator(petsValidationSchemas.listWinners), PetController.listWinners);
 
 
 export {router as petRouter};
