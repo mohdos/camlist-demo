@@ -13,7 +13,6 @@ import { PetService } from '../../services/pet.service';
 describe('', () => {
     
     beforeAll(async () => {
-        console.log(vars);
         const conn = await createConnection({
             type: "postgres",
             host: vars.postgres.host,
@@ -26,11 +25,7 @@ describe('', () => {
             dropSchema: true
         });
         if (!conn) throw Error('Cannot connect to DB');
-        console.log("BEFORE CLEAR")
-        // await clearDB();
-        console.log("AFTER CLEAR")
         await seedDB(conn);
-        console.log("AFTER SEED")
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
         jasmine.addMatchers({
             toBeIn: (expected) => {
