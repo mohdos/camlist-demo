@@ -6,7 +6,7 @@
         ```
         npm install
         ```
-    - Add your firebase creds json file to the root of the project
+    - Add your firebase creds json file to the root of the project and modify .env files accordingly
     - Modify the .env variables as required. Please have a .env.development and .env.test files. These will be used for development and testing purposes respectively
     - After setting up the .env files and creating the database, run the following command
         ```
