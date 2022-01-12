@@ -1,3 +1,6 @@
+
+# This project is using PostgreSQL as the database
+
 1. # Set up and installation
     - To install the required packages, run the following command
         ```
